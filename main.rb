@@ -19,7 +19,7 @@ for character in message_array
     # mark whether a letter is uppercase
     character_is_uppercase = character == character.upcase
     # convert letter to lowercase so we don't have to make two alphabet arrays
-    character.downcase
+    character = character.downcase
     # if character isn't in the alphabet array (whitespace, comma, etc) then just add the character to the encoded array
     if alphabet.include?(character) == false
         encoded_message_array.push(character)
@@ -33,6 +33,8 @@ for character in message_array
         end
         # return the letter in the alphabet array with the same index as this sum
         new_character = alphabet[new_character_index]
+        # convert new_character to uppercase if character_is_uppercase
+        new_character = new_character.upcase if character_is_uppercase
         # add this new character to the encoded message array
         encoded_message_array.push(new_character)
     end
